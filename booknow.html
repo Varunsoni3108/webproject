@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Now | Nisha Makeover</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f6;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      color: #d63384;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #d63384;
+    }
+
+    form label {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .row .col {
+      flex: 1;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px;
+      background-color: #d63384;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #b02a6b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+      margin-top: 50px;
+    }
+
+    @media(max-width: 600px) {
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Nisha Makeover - Book Now</div>
+   <a href="nisha.html"><button class="btn">Home</button></a>
+</header>
+
+<div class="container">
+  <h2>Book Your Appointment</h2>
+  <form>
+    <div class="row">
+      <div class="col">
+        <label for="fname">First Name *</label>
+        <input type="text" id="fname" required>
+      </div>
+      <div class="col">
+        <label for="lname">Last Name *</label>
+        <input type="text" id="lname" required>
+      </div>
+    </div>
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" required>
+
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" required>
+
+    <label for="service">Select Service *</label>
+    <select id="service" required>
+      <option value="">-- Select --</option>
+      <option value="bridal">Bridal Makeup</option>
+      <option value="party">Party Makeup</option>
+      <option value="facial">Facial & Skin Care</option>
+      <option value="hair">Hair Styling</option>
+      <option value="mehndi">Mehndi Art</option>
+    </select>
+
+    <div class="row">
+      <div class="col">
+        <label for="date">Preferred Date *</label>
+        <input type="date" id="date" required>
+      </div>
+      <div class="col">
+        <label for="time">Preferred Time *</label>
+        <input type="time" id="time" required>
+      </div>
+    </div>
+
+    <label for="note">Additional Notes</label>
+    <textarea id="note" rows="4" placeholder="Mention any special requirements..."></textarea>
+
+    <button type="submit">Confirm Booking</button>
+  </form>
+</div>
+
+<footer>
+  © 2025 Nisha Makeover - Paloda | All Rights Reserved.
+</footer>
+
+</body>
+</html>

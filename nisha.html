@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisha Makeover | Premium Beauty Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        overflow-x: hidden; 
+        background-color: #faf7f8;
+        margin: 0;
+        padding: 0;
+    }
+
+   @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&display=swap');
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', serif;
+    font-weight: 2000;
+    color: #d13579; /* professional dark gray-blue */
+    margin-bottom: 0.5em;
+    line-height: 5.3;
+    letter-spacing: 1.5px;
+}
+
+
+    .hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    padding: 0 20px;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #f9fbfb;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 150%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Optional: dark overlay for better text readability */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(194, 39, 129, 0.4);
+    z-index: 1;
+}
+
+
+    .hero-section > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            font-size: 1.2rem;
+            padding: 0 10px;
+        }
+    }
+
+    .section-title {
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(to right, #f6c6d1, #a8015d);
+    }
+
+    .service-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .service-image {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .btn-primary {
+        background: linear-gradient(45deg, #f6c6d1, #f9d5e5);
+        border: none;
+        color: #333;
+        font-weight: 50;
+        transition: all 0.3s ease;
+        
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(45deg, #926b34, #cb3b5d);
+        transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+        background-color: rgb(250, 247, 249);
+        border: 2px solid #f6c6d1;
+        color: #b92679;
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #e05172;
+        color: white;
+    }
+
+    .nav-link {
+        color: #c60d73;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .nav-link:hover {
+        color: #d4af7a;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #e14e95, #d4af7a);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(210, 57, 123);
+        border-radius: 50%;
+        margin: 0 5px;
+        color: #f6c6d1;
+        transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+        background: linear-gradient(45deg, #f6c6d1, #d6309c);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .bg-pink-light {
+        background-color: #fff0f5;
+    }
+
+    .bg-gold-light {
+        background-color: #faf3e0;
+    }
+
+    .text-gold {
+        color: rgb(210, 57, 123);
+        font-size: 5vh;
+        text-align: center;
+        align-items: center;
+    }
+
+    .text-pink {
+        color: #f6c6d1;
+    }
+
+    .form-input {
+        border: 10px solid #eee;
+        border-radius: 5px;
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: #f6c6d1;
+        box-shadow: 0 0 0 2px rgba(246, 198, 209, 0.2);
+    }
+</style>
+
+</head>
+<body>
+   <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-4 rounded-b-2xl">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <div class="flex items-center space-x-2">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-yellow-500 tracking-wide">Nisha Makeover Paloda</h1>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="hidden md:flex items-center space-x-6">
+      <a href="#home" class="text-gray-700 hover:text-pink-500 transition duration-300 font-medium">Home</a>
+      <a href="#services" class="text-gray-700 hover:text-pink-500 transition duration-300 font-medium">Services</a>
+      <a href="#about" class="text-gray-700 hover:text-pink-500 transition duration-300 font-medium">About</a>
+      <a href="#contact" class="bg-pink-500 text-white px-5 py-2 rounded-full font-medium hover:bg-pink-600 transition duration-300">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+
+
+            
+            
+           
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white w-full py-2 px-6 shadow-md">
+            <a href="#home" class="block py-2 nav-link">Home</a>
+            <a href="#services" class="block py-2 nav-link">Services</a>
+            <a href="#about" class="block py-2 nav-link">About</a>
+            <a href="#contact" class="block py-2 nav-link">Contact</a>
+            <a href="#contact" class="block mt-2 btn-primary px-6 py-2 rounded-full font-medium text-center">Book Now</a>
+        </div>
+    </nav>
+
+   <section class="relative hero-section">
+  
+  
+  
+<!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="nisha1.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  
+
+
+</section>
+
+
+
+  
+
+</section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 md:px-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center section-title">Our Premium Services</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Discover our range of premium beauty services designed to enhance your natural beauty and leave you feeling refreshed and confident.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hair Care Services" class="service-image">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Hair Care</h3>
+                        <p class="text-gray-600 mb-4">From haircuts to coloring, styling, and treatments, our hair services are designed to give you that perfect look.</p>
+                        <a href="hair_care.html" class="btn-secondary px-4 py-2 rounded-full inline-block">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1457972729786-0411a3b2b626?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Makeup Services" class="service-image">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Makeup</h3>
+                        <p class="text-gray-600 mb-4">Professional makeup services for any occasion, from natural everyday looks to glamorous evening styles.</p>
+                        <a href="makeup.html    " class="btn-secondary px-4 py-2 rounded-full inline-block">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nail Art Services" class="service-image">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Nail Art</h3>
+                        <p class="text-gray-600 mb-4">Express yourself with our creative nail art services, from classic manicures to innovative designs.</p>
+                        <a href="nailart.html" class="btn-secondary px-4 py-2 rounded-full inline-block">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Skincare Services" class="service-image">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Skincare</h3>
+                        <p class="text-gray-600 mb-4">Rejuvenate your skin with our advanced facial treatments and specialized skincare routines.</p>
+                        <a href="skincare.html" class="btn-secondary px-4 py-2 rounded-full inline-block">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 md:px-12 bg-pink-light">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Nisha Makeover</h2>
+                    <p class="mb-4">At Nisha Makeover, we believe that beauty is about enhancing what makes you unique. Our mission is to help you discover and celebrate your individual beauty through our premium services.</p>
+                    <p class="mb-4">Founded with a passion for beauty and wellness, our team of expert stylists, makeup artists, and beauty professionals are dedicated to providing personalized services that exceed your expectations.</p>
+                    <p class="mb-6">We use only the highest quality products and stay updated with the latest trends and techniques to ensure you receive the best care and results.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                            <h4 class="font-bold text-gold text-lg mb-1">15+</h4>
+                            <p class="text-gray-600">Years Experience</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                            <h4 class="font-bold text-gold text-lg mb-1">5,000+</h4>
+                            <p class="text-gray-600">Happy Clients</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                            <h4 class="font-bold text-gold text-lg mb-1">12</h4>
+                            <p class="text-gray-600">Beauty Experts</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                            <h4 class="font-bold text-gold text-lg mb-1">25+</h4>
+                            <p class="text-gray-600">Beauty Awards</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Beauty salon staff" class="rounded-lg shadow-md w-full h-56 object-cover">
+                    <img src="about2.png" alt="Beauty treatment" class="rounded-lg shadow-md w-full h-56 object-cover mt-8">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Makeup tools" class="rounded-lg shadow-md w-full h-56 object-cover">
+                    <img src="about4.png" alt="Salon interior" class="rounded-lg shadow-md w-full h-56 object-cover mt-8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6 md:px-12 bg-gold-light">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center section-title">Client Testimonials</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Hear what our clients say about their experiences at Nisha Makeover.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="mus.png" alt="Client" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Muskan Soni</h4>
+                            <p class="text-gray-500 text-sm">Regular Client</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I've been coming to Nisha Makeover for over 2 years now, and I wouldn't trust anyone else with my hair. Their stylists are incredibly talented and always make me feel beautiful!"</p>
+                    <div class="mt-4 flex text-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="jeny.png" alt="Client" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">jeny soni</h4>
+                            <p class="text-gray-500 text-sm">Bridal Client</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Nisha and her team did my bridal makeup and hair. They were professional, punctual, and made me look absolutely stunning! Everyone complimented my look all day."</p>
+                    <div class="mt-4 flex text-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="buss.png" alt="Client" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Buss soni</h4>
+                            <p class="text-gray-500 text-sm">First-time Client</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I visited Nisha Makeover for the first time for a facial and manicure. The attention to detail and personalized service was exceptional. I've already booked my next appointment!"</p>
+                    <div class="mt-4 flex text-gold">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center section-title">Get In Touch</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Have questions or ready to book an appointment? Reach out to us using the form below or contact us directly.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h3 class="text-2xl font-semibold mb-6">Book an Appointment</h3>
+                    <form action="#" method="POST">
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2 text-gray-700">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Pradeep soni" class="w-full form-input" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2 text-gray-700">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Nisha@example.com" class="w-full form-input" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block mb-2 text-gray-700">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 7850919110" class="w-full form-input" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="service" class="block mb-2 text-gray-700">Service Interested In</label>
+                            <select id="service" name="service" class="w-full form-input" required>
+                                <option value="">Select a service</option>
+                                <option value="haircare">Hair Care</option>
+                                <option value="makeup">Makeup</option>
+                                <option value="nailart">Nail Art</option>
+                                <option value="skincare">Skincare</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2 text-gray-700">Your Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us more about what you're looking for..." class="w-full form-input"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary px-8 py-3 rounded-full font-medium w-full">Book Appointment</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <div class="mb-8">
+                        <div class="flex items-start mb-4">
+                            <div class="text-pink-500 mt-1 mr-4">
+                                <i class="fas fa-map-marker-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Location</h4>
+                                <p class="text-gray-600">321  District,Banswara(Paloda),Since2016</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="text-pink-500 mt-1 mr-4">
+                                <i class="fas fa-phone-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Phone</h4>
+                                <p class="text-gray-600">+91 9772909763</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="text-pink-500 mt-1 mr-4">
+                                <i class="fas fa-envelope text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <p class="text-gray-600">nisha_makeover@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-6">Business Hours</h3>
+                    <div class="mb-8">
+                        <div class="flex justify-between py-2 border-b">
+                            <span>Monday - Friday</span>
+                            <span>9:00 AM - 8:00 PM</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span>Saturday</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span>Sunday</span>
+                            <span>10:00 AM - 4:00 PM</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Placeholder -->
+                    <div class="rounded-lg overflow-hidden h-64 bg-gray-200 flex items-center justify-center">
+                        <div class="text-gray-500 text-center">
+                            <i class="fas fa-map-marked-alt text-4xl mb-2"><iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14459.985271904497!2d74.16579259026788!3d23.763948562818147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39671feb52d42c89%3A0xd7b7117765c89b04!2sPALLAVI%20BEAUTY%20SALON%20%2CNISHA%20SONI%2C%20dp%20wali%20gali%2C%20me%2C%20Paloda%2C%20Banswara%2C%20Rajasthan%20327405!3m2!1d23.759545!2d74.173906!5e0!3m2!1sen!2sin!4v1752409206305!5m2!1sen!2sin" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></i>
+                            <p>Map Embed Would Appear Here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6 md:px-12">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- About Column -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Nisha Makeover</h3>
+                    <p class="text-gray-400 mb-4">Elevating beauty through personalized, premium services. Your journey to confidence and elegance begins with us.</p>
+                    <div class="flex">
+                        <a href="#" class="social-icon mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/nisha_makeover63" target="_blank" class="social-icon mr-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Column -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="hair_care.html" class="text-gray-400 hover:text-white transition duration-300">Hair Care</a></li>
+                        <li><a href="makeup.html" class="text-gray-400 hover:text-white transition duration-300">Makeup</a></li>
+                        <li><a href="nailart.html" class="text-gray-400 hover:text-white transition duration-300">Nail Art</a></li>
+                        <li><a href="skincare.html" class="text-gray-400 hover:text-white transition duration-300">Skincare</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Bridal Packages</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter Column -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Subscribe to Our Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with our latest offers, promotions, and beauty tips.</p>
+                    <form action="#" method="POST" class="flex">
+                        <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-l-md w-full focus:outline-none">
+                        <button type="submit" class="bg-pink-500 px-4 py-2 rounded-r-md hover:bg-pink-600 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Nisha Makeover. All rights reserved. Designed with <i class="fas fa-heart text-pink-500"></i> for beauty enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Add padding to body to account for fixed navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('nav');
+            const navbarHeight = navbar.offsetHeight;
+            document.body.style.paddingTop = navbarHeight + 'px';
+        });
+    </script>
+</body>
+</html>
